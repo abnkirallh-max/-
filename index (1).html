@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تطبيق ويب لعرض البيانات والصور بشكل احترافي انشاء بثينه سيد">
+    <title>تطبيق عرض البيانات</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-database"></i>
+                <span>عرض البيانات</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#data">البيانات</a></li>
+                <li><a href="#images">الصور</a></li>
+                <li><a href="#about">حول</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- القسم الرئيسي -->
+    <main>
+        <!-- الهيدر -->
+        <header class="hero" id="home">
+            <div class="hero-content">
+                <h1 class="hero-title">مرحباً بك في تطبيق عرض البيانات</h1>
+                <p class="hero-subtitle">هذا التطبيق يعرض بيانات وصور بطريقة احترافية ومتجاوبة</p>
+                <button class="cta-button" id="showDataBtn">عرض البيانات</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="تحليل البيانات">
+            </div>
+        </header>
+
+        <!-- قسم البحث والتصفية -->
+        <section class="filter-section">
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="ابحث في البيانات...">
+                </div>
+                <div class="filter-options">
+                    <select id="filterSelect">
+                        <option value="all">جميع البيانات</option>
+                        <option value="image">تحتوي على صور</option>
+                        <option value="recent">الأحدث</option>
+                        <option value="popular">الأكثر مشاهدة</option>
+                    </select>
+                    <button class="sort-btn" id="sortBtn">
+                        <i class="fas fa-sort-amount-down"></i>
+                        ترتيب حسب
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- حاوية العرض الرئيسية -->
+        <section class="content-section" id="data">
+            <h2 class="section-title">عرض البيانات والصور</h2>
+            <p class="section-subtitle">سيتم عرض البيانات والصور هنا بعد النقر على الزر أعلاه</p>
+            
+            <!-- مؤشر التحميل -->
+            <div class="loader-container" id="loader">
+                <div class="loader"></div>
+                <p>جاري تحميل البيانات...</p>
+            </div>
+
+            <!-- حاوية المحتوى الديناميكي -->
+            <div class="content-container" id="contentContainer">
+                <!-- المحتوى سيتم إضافته هنا ديناميكياً -->
+            </div>
+
+            <!-- زر تحميل المزيد -->
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <i class="fas fa-plus"></i>
+                    تحميل المزيد
+                </button>
+            </div>
+        </section>
+
+        <!-- قسم الصور -->
+        <section class="images-section" id="images">
+            <h2 class="section-title">معرض الصور</h2>
+            <div class="images-container" id="imagesContainer">
+                <!-- الصور ستضاف هنا ديناميكياً -->
+            </div>
+        </section>
+
+        <!-- قسم الإحصائيات -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-image"></i>
+                    <h3 class="stat-number" id="totalImages">0</h3>
+                    <p class="stat-label">صورة</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-table"></i>
+                    <h3 class="stat-number" id="totalData">0</h3>
+                    <p class="stat-label">عنصر بيانات</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-eye"></i>
+                    <h3 class="stat-number" id="totalViews">0</h3>
+                    <p class="stat-label">مشاهدة</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3 class="stat-number" id="currentDate">0</h3>
+                    <p class="stat-label">تاريخ اليوم</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- الفوتر -->
+    <footer class="footer" id="about">
+        <div class="footer-container">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <i class="fas fa-database"></i>
+                    <span>عرض البيانات</span>
+                </div>
+                <p class="footer-description">
+                    تطبيق ويب احترافي لعرض البيانات والصور بشكل تفاعلي وجذاب. 
+                    يتميز بواجهة مستخدم متطورة وتجربة مستخدم محسنة.
+                </p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#data">البيانات</a></li>
+                    <li><a href="#images">الصور</a></li>
+                    <li><a href="#about">حول التطبيق</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>معلومات الاتصال</h3>
+                <p><i class="fas fa-envelope"></i> info@data-app.com</p>
+                <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                <p><i class="fas fa-map-marker-alt"></i> المدينة، البلد</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة &copy; <span id="currentYear">2024</span> - تطبيق عرض البيانات</p>
+            <p>تم التطوير باستخدام HTML، CSS و JavaScript</p>
+        </div>
+    </footer>
+
+    <!-- زر العودة للأعلى -->
+    <button class="scroll-top-btn" id="scrollTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- نموذج عرض التفاصيل -->
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- محتوى النموذج سيتم تعبئته ديناميكياً -->
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
